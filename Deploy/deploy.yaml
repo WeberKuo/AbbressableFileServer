@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: file-svc
+  labels:
+    app: file-svc
+spec:
+  selector:
+    matchLabels:
+      app: file-svc
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: file-svc
+    spec:
+      containers:
+      - name: file-svc
+        image: "YOUR IMAGE NAME"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          protocol: TCP
